@@ -60,20 +60,6 @@ pip install numpy scipy matplotlib librosa soundfile scikit-learn hmmlearn pytho
 
 ## 3. Hướng dẫn chạy chương trình với Jupyter Notebook
 
-1. Mở file [Lab03.ipynb](file:///d:/Lab03_2351260662_LeThiThuyLinh/Lab03.ipynb) trong Visual Studio Code hoặc Jupyter Lab / Jupyter Notebook.
+1. Mở file trong Visual Studio Code hoặc Jupyter Lab / Jupyter Notebook.
 2. Chọn Kernel Python 3 phù hợp (đã cài các thư viện `librosa`, `hmmlearn`, `scikit-learn`, `matplotlib`).
 3. Nhấn **"Run All"** để thực thi toàn bộ pipeline từ đầu đến cuối, quan sát trực tiếp các biểu đồ Heatmap phổ, Trellis Viterbi Alignment, ma trận nhầm lẫn Confusion Matrix và các bảng so sánh.
-
----
-
-## 4. Bảng đối chiếu các tiêu chí chấm điểm theo Rubric 10 điểm (Mục 7.2)
-
-| Hạng mục Rubric | Điểm tối đa | Mức đạt & Bằng chứng thực nghiệm |
-| :--- | :---: | :--- |
-| **Chuẩn bị dữ liệu + MFCC/Δ/Δ² đúng** | **1.5** | Đọc WAV 16kHz mono, cắt silence VAD (`top_db=30`), pre-emphasis 0.97, trích xuất 13 MFCC tĩnh + 13 Delta + 13 Delta-Delta ghép thành ma trận $T \times 39$, chuẩn hóa utterance-level CMVN. Đúng phân chia train/test (6 train + 2 test/lớp), không rò rỉ dữ liệu (leakage). |
-| **Hiểu & cấu hình HMM** | **2.0** | Cấu hình Bakis topology Trái-sang-Phải 5 trạng thái: $\pi=[1, 0, 0, 0, 0]$, $a_{ii}=0.7$, $a_{i, i+1}=0.3$, $a_{NN}=1.0$. Phân bố Gaussian Diagonal Covariance. Giải thích cặn kẽ tại sao Diagonal Covariance phù hợp hơn Full Covariance khi $D=39$ và dữ liệu nhỏ. |
-| **Huấn luyện + likelihood + Viterbi** | **2.0** | Ghép chuỗi huấn luyện $X\_concat$ kèm danh sách `lengths`. Cả 5 model hội tụ tốt (`converged = True`). Hàm `recognize()` chọn $\arg\max \log P(X\|\lambda_w)$. Gióng hàng Viterbi `model.decode()` và vẽ biểu đồ Trellis giải thích tương quan số khung hình với trường độ âm vị. |
-| **Đánh giá + so sánh DTW** | **1.5** | Baseline DTW chạy trên cùng tập dữ liệu. Bảng so sánh 6 tiêu chí: Accuracy, số mẫu train, thời gian train, thời gian test/trial, confusion pair, khả năng giải thích alignment. |
-| **Lexicon + LM extension** | **1.0** | File [lexicon.txt](file:///d:/Lab03_2351260662_LeThiThuyLinh/lexicon.txt) đúng format ASR và có hàm parser thành dict. Xây dựng Bigram LM từ [corpus.txt](file:///d:/Lab03_2351260662_LeThiThuyLinh/corpus.txt) có làm mịn Add-$k$, xuất [bigram_counts.json](file:///d:/Lab03_2351260662_LeThiThuyLinh/bigram_counts.json), thử nghiệm MAP Re-ranking với $\lambda_{LM} \in \{0.0, 0.1, 0.3, 1.0, 3.0\}$. |
-| **Thí nghiệm & phân tích lỗi** | **1.0** | Đầy đủ 6 thí nghiệm bắt buộc E1–E6: biến đổi $n\_states \in \{3, 5, 7\}$, so sánh đặc trưng động, phân tích Full Covariance overfit, kiểm tra độ bền vững Mismatch (pitch nữ + noise), đề xuất tiêu chí từ chối Reject Threshold cho từ ngoài từ điển (OOV). |
-| **Mã nguồn, báo cáo, tái lập** | **1.0** | Mã nguồn rõ ràng, chạy lại được từ đầu đến cuối không lỗi; hình ảnh, bảng biểu có chú thích đầy đủ; file báo cáo [BaoCao_Lab03.docx](file:///d:/Lab03_2351260662_LeThiThuyLinh/BaoCao_Lab03.docx) chuẩn học thuật 4–6 trang kèm file markdown [BaoCao_Lab03.md](file:///d:/Lab03_2351260662_LeThiThuyLinh/BaoCao_Lab03.md). |
