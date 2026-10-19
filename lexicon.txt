@@ -1,0 +1,11 @@
+# ==============================================================================
+# CSE457 - XỬ LÝ ÂM THANH VÀ TIẾNG NÓI | LAB 3: PRONUNCIATION LEXICON
+# Sinh viên: Lê Thị Thùy Linh - MSV: 2351260662
+# Định dạng: WORD PHONE_1 PHONE_2 ... PHONE_K
+# Bảng phiên âm âm vị học (Phonetic Inventory) cho 5 lệnh điều khiển tiếng Việt
+# ==============================================================================
+mo M OO
+dong D AW NG
+len L EH N
+xuong S UO NG
+dung D UH NG

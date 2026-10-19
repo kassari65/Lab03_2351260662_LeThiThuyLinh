@@ -1,0 +1,7 @@
+Criteria,DTW_Baseline,Gaussian_HMM,Comments
+Accuracy,90.0%-100.0%,100.0%,HMM mô hình hóa phân bố xác suất tốt hơn trên mẫu mới
+Num_Train_Samples,1-2 mẫu/lớp,5-10 mẫu/lớp,DTW tốt khi cực ít mẫu; HMM cần đủ dữ liệu cho tham số ổn định
+Train_Time,Gần như 0,1.2 - 2.5 giây,HMM cần lặp thuật toán Baum-Welch EM qua nhiều epoch
+Inference_Latency,Chậm theo số template,Nhanh và cố định,HMM chỉ so khớp với ma trận tham số N=5 trạng thái
+Alignment_Explanation,Warping Path chi phí,Viterbi State Trellis,Viterbi bóc tách trực tiếp từng trường độ âm vị
+Scalability,Kém (chỉ từ vựng nhỏ),Rất mạnh (LVCSR),HMM dễ dàng tích hợp Phone HMM, Lexicon và Language Model

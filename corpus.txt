@@ -1,0 +1,25 @@
+# ==============================================================================
+# CSE457 - XỬ LÝ ÂM THANH VÀ TIẾNG NÓI | LAB 3: COMMAND CORPUS
+# Sinh viên: Lê Thị Thùy Linh - MSV: 2351260662
+# Ngữ liệu các câu lệnh điều khiển hệ thống phục vụ Language Model (Bigram)
+# ==============================================================================
+bắt_đầu mở lên
+mở lên dừng
+lên lên dừng
+xuống xuống dừng
+mở xuống dừng
+đóng xuống dừng
+dừng mở lên
+dừng đóng xuống
+lên dừng đóng
+xuống dừng đóng
+mở lên lên
+đóng xuống xuống
+bắt_đầu mở đóng
+mở đóng dừng
+bắt_đầu lên dừng
+dừng lên mở
+đóng dừng dừng
+bắt_đầu xuống dừng
+mở dừng đóng
+lên mở đóng
